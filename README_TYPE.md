@@ -1,13 +1,13 @@
 # 一、对比概览总表
 
-| 维度       | RabbitMQ                     | RocketMQ       | Kafka            |
-|-------|---------------------------|-------------|------------------|
-| 公司背景     | Pivotal/VMware (原Spring)     | 阿里巴巴           | Apache/Confluent |
-| 诞生年份     | 2007                         | 2012           | 2011             |
-| 开发语言     | Erlang	Java                  | Scala/Java  |                  |
-| 协议支持     | AMQP、STOMP、MQTT、HTTP         | 自定义协议          | 自定义协议            |
-| 设计理念     | 企业级消息代理                      | 金融级消息队列        | 高吞吐分布式流平台        |
-| 开源协议     | Mozilla Public License       | Apache 2.0     | Apache 2.0       |
+| 维度       | RabbitMQ                 | RocketMQ   | Kafka            |
+|-------|--------------------------|------------|------------------|
+| 公司背景     | Pivotal/VMware (原Spring) | 阿里巴巴       | Apache/Confluent |
+| 诞生年份     | 2007                     | 2012       | 2011             |
+| 开发语言     | Erlang	                  | Java       | Scala/Java  |
+| 协议支持     | AMQP、STOMP、MQTT、HTTP     | 自定义协议      | 自定义协议            |
+| 设计理念     | 企业级消息代理                  | 金融级消息队列    | 高吞吐分布式流平台        |
+| 开源协议     | Mozilla Public License   | Apache 2.0 | Apache 2.0       |
 
 # 二、核心架构对比
 
@@ -21,7 +21,7 @@ Kafka：ZooKeeper + Broker集群，分区分布式存储
 
 ## 2. 消息模型
 
-RabbitMQ： 点对点、发布订阅 Exchange类型：Direct, Topic, Fanout, Headers ,基于Virtual Host隔离
+RabbitMQ： 点对点、发布订阅 ,Exchange类型：Direct, Topic, Fanout, Headers ;基于Virtual Host隔离
 RocketMQ： 顺序消息、定时/延时消息、事务消息 ,Tag过滤机制 ,支持消息轨迹追踪
 Kafka： 分区消费模型 ,Consumer Group负载均衡 ,基于Offset的消息定位
 
