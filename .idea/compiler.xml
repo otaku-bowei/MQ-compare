@@ -9,8 +9,5 @@
         <module name="MQ-compare" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="MQ-compare" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

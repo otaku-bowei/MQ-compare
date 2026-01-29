@@ -1,0 +1,54 @@
+# application.yml
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: mq-application
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: IboTxData5566
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  kafka:
+    bootstrap-servers: localhost:9092  # Kafka集群地址
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all  # 消息确认机制
+      retries: 3  # 发送失败重试次数
+    consumer:
+      group-id: ${spring.application.name}-group  # 消费者组ID
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest  # 无偏移量时从最早开始消费
+      enable-auto-commit: true  # 自动提交偏移量
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    connection-timeout: 3000
+    # 生产者配置
+    publisher-confirm-type: correlated  # 发布确认模式
+    publisher-returns: true  # 开启发布返回
+    template:
+      mandatory: true  # 消息路由失败返回给生产者
+    # 消费者配置
+    listener:
+      simple:
+        acknowledge-mode: manual  # 手动确认
+        prefetch: 1  # 每次处理一条消息
+        concurrency: 1  # 并发消费者数量
+
+
+rocketmq:
+  name-server: 127.0.0.1:9876  # NameServer地址
+  producer:
+    group: ${spring.application.name}-producer-group  # 生产者组名
+    send-message-timeout: 3000  # 发送消息超时时间(毫秒)
+    retry-times-when-send-failed: 2  # 同步发送失败重试次数
+  consumer:
+    group: ${spring.application.name}-consumer-group  # 消费者组名
