@@ -1,6 +1,6 @@
-package com.compare.kafka;
+package com.compare.service.kafka;
 
-import com.compare.base.AbstractMQProducer;
+import com.compare.service.base.AbstractMQProducer;
 import com.compare.model.MQMessage;
 import com.compare.model.TestConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;

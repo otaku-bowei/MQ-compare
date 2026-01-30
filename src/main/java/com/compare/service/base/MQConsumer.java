@@ -1,9 +1,8 @@
-package com.compare.base;
+package com.compare.service.base;
 
 import com.compare.model.MQMessage;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public interface MQConsumer {
     String getMQType();

@@ -1,6 +1,7 @@
-package com.compare.rabbitmq;
+package com.compare.service.rabbitmq;
 
-import com.compare.base.AbstractMQConsumer;
+import com.compare.model.TestConfig;
+import com.compare.service.base.AbstractMQConsumer;
 import com.compare.config.RabbitMQConfig;
 import com.compare.model.MQMessage;
 import com.rabbitmq.client.*;

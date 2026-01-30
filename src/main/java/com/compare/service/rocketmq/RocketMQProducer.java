@@ -1,9 +1,11 @@
-package com.compare.rocketmq;
+package com.compare.service.rocketmq;
 
-import com.compare.base.AbstractMQProducer;
+import com.compare.model.TestConfig;
+import com.compare.service.base.AbstractMQProducer;
 import com.compare.model.MQMessage;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.client.producer.SendStatus;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
@@ -13,8 +15,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 @Component
 public class RocketMQProducer extends AbstractMQProducer {
@@ -39,7 +39,7 @@ public class RocketMQProducer extends AbstractMQProducer {
     @Override
     public void initialize() {
         if (!initialized) {
-            rocketMQTemplate.start();
+//            rocketMQTemplate.start();
             initialized = true;
             System.out.println("RocketMQ生产者初始化完成，主题: " + topicName);
         }
@@ -120,7 +120,7 @@ public class RocketMQProducer extends AbstractMQProducer {
 
     @Override
     public void cleanup() {
-        rocketMQTemplate.shutdown();
+        rocketMQTemplate.destroy();
         System.out.println("RocketMQ生产者资源已清理");
     }
 }

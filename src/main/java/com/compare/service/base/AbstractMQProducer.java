@@ -1,7 +1,6 @@
-package com.compare.base;
+package com.compare.service.base;
 
 import com.compare.common.LatencyRecorder;
-import com.compare.model.MQMessage;
 import com.compare.model.TestConfig;
 import com.compare.model.TestResult;
 

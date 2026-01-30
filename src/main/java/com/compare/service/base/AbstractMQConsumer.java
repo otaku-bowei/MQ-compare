@@ -1,4 +1,4 @@
-package com.compare.base;
+package com.compare.service.base;
 
 import com.compare.model.MQMessage;
 

@@ -1,16 +1,16 @@
 package com.compare.controller;
 
-import com.compare.base.MQConsumer;
-import com.compare.base.MQProducer;
-import com.compare.kafka.KafkaConsumerImpl;
-import com.compare.kafka.KafkaProducerImpl;
+import com.compare.service.base.MQConsumer;
+import com.compare.service.base.MQProducer;
+import com.compare.service.kafka.KafkaConsumerImpl;
+import com.compare.service.kafka.KafkaProducerImpl;
 import com.compare.model.MQMessage;
 import com.compare.model.TestConfig;
 import com.compare.model.TestResult;
-import com.compare.rabbitmq.RabbitMQConsumer;
-import com.compare.rabbitmq.RabbitMQProducer;
-import com.compare.rocketmq.RocketMQConsumer;
-import com.compare.rocketmq.RocketMQProducer;
+import com.compare.service.rabbitmq.RabbitMQConsumer;
+import com.compare.service.rabbitmq.RabbitMQProducer;
+import com.compare.service.rocketmq.RocketMQConsumer;
+import com.compare.service.rocketmq.RocketMQProducer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;

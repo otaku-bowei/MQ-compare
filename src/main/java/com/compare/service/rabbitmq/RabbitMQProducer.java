@@ -1,12 +1,12 @@
-package com.compare.rabbitmq;
+package com.compare.service.rabbitmq;
 
-import com.compare.base.AbstractMQProducer;
+import com.compare.model.TestConfig;
+import com.compare.service.base.AbstractMQProducer;
 import com.compare.config.RabbitMQConfig;
 import com.compare.model.MQMessage;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
-import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeoutException;
 
