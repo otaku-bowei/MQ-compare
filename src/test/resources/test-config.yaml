@@ -1,0 +1,23 @@
+# Test Configuration
+test:
+  message-count: 10000
+  message-size: 1024
+  producer-count: 1
+  consumer-count: 1
+  queue-count: 1
+  warmup-iterations: 1000
+  test-iterations: 5
+
+# Mock delays (milliseconds)
+mock:
+  send-delay-min: 1
+  send-delay-max: 10
+  receive-delay-min: 1
+  receive-delay-max: 5
+  success-rate: 0.95
+
+# Concurrency settings
+concurrency:
+  thread-pool-size: 10
+  batch-size: 100
+  timeout-seconds: 60
