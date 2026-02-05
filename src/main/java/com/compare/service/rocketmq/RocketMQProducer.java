@@ -7,20 +7,16 @@ import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.client.producer.SendStatus;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@Component
 public class RocketMQProducer extends AbstractMQProducer {
     private static final String MQ_TYPE = "RocketMQ";
     
-    @Autowired
     private RocketMQTemplate rocketMQTemplate;
     
     private final String topicName;
@@ -31,6 +27,10 @@ public class RocketMQProducer extends AbstractMQProducer {
         this.topicName = TestConfig.getInstance().getTopicName(MQ_TYPE, topicIndex);
     }
 
+    public void setRocketMQTemplate(RocketMQTemplate rocketMQTemplate) {
+        this.rocketMQTemplate = rocketMQTemplate;
+    }
+
     @Override
     public String getMQType() {
         return MQ_TYPE;
@@ -39,7 +39,6 @@ public class RocketMQProducer extends AbstractMQProducer {
     @Override
     public void initialize() {
         if (!initialized) {
-//            rocketMQTemplate.start();
             initialized = true;
             System.out.println("RocketMQ生产者初始化完成，主题: " + topicName);
         }

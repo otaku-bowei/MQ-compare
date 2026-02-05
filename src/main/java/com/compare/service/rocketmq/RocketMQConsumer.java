@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-@Component
 public class RocketMQConsumer extends AbstractMQConsumer {
     private static final String MQ_TYPE = "RocketMQ";
     
