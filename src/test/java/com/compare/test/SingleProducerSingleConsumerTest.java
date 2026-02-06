@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SingleProducerSingleConsumerTest {
 
-    private static final int MESSAGE_COUNT = 1000;  // 测试用小数量
+    private static final int MESSAGE_COUNT = 100000;  // 测试用小数量
     private static final int MESSAGE_SIZE = 1024;
     
     private ExecutorService executorService;

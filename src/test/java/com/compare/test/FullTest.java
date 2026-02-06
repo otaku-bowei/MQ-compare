@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FullTest {
 
-    private static final int MESSAGE_COUNT = 1000;
+    private static final int MESSAGE_COUNT = 100000;
     private static final int MESSAGE_SIZE = 1024;
     
     private ExecutorService executorService;
@@ -152,10 +152,10 @@ public class FullTest {
         
         // 等待所有完成
         for (Future<?> f : producerFutures) {
-            f.get(60, TimeUnit.SECONDS);
+            f.get(6000, TimeUnit.SECONDS);
         }
         for (Future<?> f : consumerFutures) {
-            f.get(60, TimeUnit.SECONDS);
+            f.get(6000, TimeUnit.SECONDS);
         }
         
         long endTime = System.currentTimeMillis();
