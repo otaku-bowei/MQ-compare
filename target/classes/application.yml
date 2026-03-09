@@ -52,3 +52,5 @@ rocketmq:
     retry-times-when-send-failed: 2  # 同步发送失败重试次数
   consumer:
     group: ${spring.application.name}-consumer-group  # 消费者组名
+    # 是否在应用启动时立即消费，false=延迟消费
+    suspend-current-queue-time-mills: 0
